@@ -1,10 +1,6 @@
 #!/bin/bash
 pht=0
 pid=`pidof i3lock`
-h2=`date | awk {'print $5'} | cut -b 1-2`
-m2=`date | awk {'print $5'} | cut -b 4-5`
-let g=(h2*60)
-let gg=g*m2
 while [ $pid ];
 do
   h1=`date | awk {'print $5'} | cut -b 1-2`
@@ -15,14 +11,10 @@ do
   let tt=t+m1
   let p=h*60
   let pp=p+m
-  echo $tt
-  echo $pp
-  if [ $gg != $pp ];then
-    if [ $tt = $pp ];then
-      if [ $pht -eq 0 ];then 
-        echo -e "$(fswebcam -r 640x480 -F 10 -s brightness=80% ~/.i3lock.png)"
-        pht=1
-      fi
+  if [ $tt = $pp ];then
+    if [ $pht -eq 0 ];then 
+      echo -e "$(fswebcam -r 640x480 -F 10 -s brightness=80% ~/.i3lock.png)"
+      pht=1
     fi
   fi
   if [ $tt != $pp ];then
