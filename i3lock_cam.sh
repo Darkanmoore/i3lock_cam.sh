@@ -15,7 +15,7 @@ do
     h=`journalctl -xn | grep 'pam_unix(i3lock:auth): authentication failure' | awk {'print $3'} | tail -n 1 | cut -b 1-2`
     m=`journalctl -xn | grep 'pam_unix(i3lock:auth): authentication failure' | awk {'print $3'} | tail -n 1 | cut -b 4-5`
     
-    # Conver all in minutes
+    # Converts all in minutes
     let t=(h1*60)
     let tt=t+m1
     let p=h*60
