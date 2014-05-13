@@ -25,6 +25,8 @@ do
       if [ $pht -eq 0 ];then 
         # Take a picture and save it 
         echo -e "$(fswebcam -r 640x480 -F 10 -s brightness=80% ~/.i3lock.png)"
+        # Decomment that line for use mutt to send an e-mail with picture as file
+        # echo "Qualcuno sta cercando di entrare nel tuo computer" | mutt -s "saluti" -a ~/.i3lock.png -- yourmail@xxx.xx
         pht=1
       fi
     fi
